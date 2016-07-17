@@ -1,6 +1,5 @@
- 
-$(document).ready(function(){
-    $("#tiger").on("click","a", function (event) {
+ $(document).ready(function(){
+    $("#menu").on("click","a", function (event) {
         //отменяем стандартную обработку нажатия по ссылке
         event.preventDefault();
 
