@@ -1,12 +1,16 @@
-$(document).ready(function () {
-    $("a").click(function () {
-        var elementClick = $(this).attr("href");
-        var destination = $(elementClick).offset().top;
-        if ($.browser.safari) {
-            $('body').animate({ scrollTop: destination }, 1100); //1100 - скорость
-        } else {
-            $('html').animate({ scrollTop: destination }, 600);
-        }
-        return false; 
+ 
+$(document).ready(function(){
+    $("#tiger").on("click","a", function (event) {
+        //отменяем стандартную обработку нажатия по ссылке
+        event.preventDefault();
+
+        //забираем идентификатор бока с атрибута href
+        var id  = $(this).attr('href'),
+
+        //узнаем высоту от начала страницы до блока на который ссылается якорь
+            top = $(id).offset().top;
+        
+        //анимируем переход на расстояние - top за 1500 мс
+        $('body,html').animate({scrollTop: top}, 1500);
     });
 });
